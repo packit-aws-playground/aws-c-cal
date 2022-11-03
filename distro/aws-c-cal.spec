@@ -56,6 +56,8 @@ cryptography primitives
 
 %files
 %{_bindir}/sha256_profile
+%{_bindir}/produce_x_platform_fuzz_corpus
+%{_bindir}/run_x_platform_fuzz_corpus
 
 %files libs
 %license LICENSE
