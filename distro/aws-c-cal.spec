@@ -17,6 +17,8 @@ Requires:       aws-c-common-libs
 Requires:       openssl
 Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 
+%global debug_package %{nil}
+
 %description
 AWS Crypto Abstraction Layer: Cross-Platform, C99 wrapper for
 cryptography primitives
@@ -45,38 +47,20 @@ cryptography primitives
 
 
 %build
-%cmake -DBUILD_SHARED_LIBS=ON
-%cmake_build
+echo something
 
 %install
-%cmake_install
-
-%check
-%ctest
+mkdir -p %{buildroot}%{_bindir}
+touch %{buildroot}%{_bindir}/something
 
 %files
-%{_bindir}/sha256_profile
-%{_bindir}/produce_x_platform_fuzz_corpus
-%{_bindir}/run_x_platform_fuzz_corpus
+%{_bindir}/something
 
 %files libs
-%license LICENSE
-%doc README.md
-%{_libdir}/libaws-c-cal.so.1.0.0
+%{_bindir}/something
 
 %files devel
-%dir %{_includedir}/aws/cal
-%{_includedir}/aws/cal/*.h
-
-%dir %{_libdir}/cmake/aws-c-cal
-%dir %{_libdir}/cmake/aws-c-cal/modules
-%dir %{_libdir}/cmake/aws-c-cal/shared
-%{_libdir}/libaws-c-cal.so
-%{_libdir}/cmake/aws-c-cal/aws-c-cal-config.cmake
-%{_libdir}/cmake/aws-c-cal/modules/Findcrypto.cmake
-%{_libdir}/cmake/aws-c-cal/shared/aws-c-cal-targets-noconfig.cmake
-%{_libdir}/cmake/aws-c-cal/shared/aws-c-cal-targets.cmake
-
+%{_bindir}/something
 
 %changelog
 * Thu Feb 24 2022 David Duncan <davdunc@amazon.com> - 0.5.12-7
