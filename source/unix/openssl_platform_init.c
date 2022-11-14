@@ -23,6 +23,7 @@ static struct aws_allocator *s_libcrypto_allocator = NULL;
 
 /* weak refs to libcrypto functions to force them to at least try to link
  * and avoid dead-stripping
+ * The change.
  */
 #if defined(OPENSSL_IS_AWSLC)
 extern HMAC_CTX *HMAC_CTX_new(void) __attribute__((weak, used));
